@@ -5,6 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>da5e8532-221f-4a0a-b854-2b5d66c65d17</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\Redplcs.PshenkaFeed.Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\Redplcs.PshenkaFeed.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
