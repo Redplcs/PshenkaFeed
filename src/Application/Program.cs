@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Microsoft.Extensions.Hosting;
+
+var host = Host.CreateApplicationBuilder(args);
+
+host.Build().Run();
