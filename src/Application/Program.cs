@@ -1,11 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Redplcs.PshenkaFeed.Domain;
-using Redplcs.PshenkaFeed.Infrastructure.Telegram;
+﻿using Microsoft.Extensions.Hosting;
+using Redplcs.PshenkaFeed.Application.Configurations;
 
 var host = Host.CreateApplicationBuilder(args);
 
-host.Services.Configure<TelegramOptions>(host.Configuration.GetSection("Telegram"));
-host.Services.AddSingleton<IContentSender, TelegramContentSender>();
+host.Services
+	.AddVkontakte(host.Configuration)
+	.AddTelegram(host.Configuration)
+	.AddDispatcherWorker();
 
 host.Build().Run();
