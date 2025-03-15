@@ -23,6 +23,11 @@ public sealed class VkontakteContentReceiver(IVkApi api, IOptions<VkontakteOptio
 		var message = await ReadMessageWithAttachmentAsync(cancellationToken);
 		var attachment = message.Attachments.First();
 
+		if (attachment.Instance is Wall wall)
+		{
+			attachment = wall.Attachments.First();
+		}
+
 		return attachment.Instance switch
 		{
 			Photo photo => GetPhotoContent(photo),
