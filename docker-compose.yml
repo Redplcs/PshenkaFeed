@@ -1,0 +1,6 @@
+services:
+  redplcs.pshenkafeed.application:
+    image: ${DOCKER_REGISTRY-}redplcspshenkafeedapplication
+    build:
+      context: .
+      dockerfile: src/Application/Dockerfile
